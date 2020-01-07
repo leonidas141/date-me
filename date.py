@@ -1,39 +1,64 @@
 #!/usr/bin/python3
 # coding: utf-8
+""" Simulation of "The Pairing Game".
 
-'''
-@Author  : Wang Siqiang
-@Contact : wang_siqiang@163.com
-@File    : ${NAME}.py
-@Time    : ${DATE} ${TIME}
-'''
+    Copyright (C) 2020  Wang Siqiang
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+"""
+
+
+__author__ = "Wang Siqiang"
+# __authors__ = ["Wang Siqiang",]
+__contact__ = "wangsiqiang01@gmail.com"
+__copyright__ = "Copyright $2020"
+__credits__ = ["Wang Siqiang",]
+__date__ = "2020/01/07"
+__deprecated__ = False
+__email__ =  "wangsiqiang01@gmail.com"
+__license__ = "GPLv3"
+__maintainer__ = "leonidas141"
+__status__ = "Production"
+__version__ = "0.0.1"
+
+
 import heapq
 import numpy as np
 import random
-"""
 
-rules
+"""
+rules:
 
     1. 男女各100人；
 
     2. 编号为1~100，但他们不知道数字最大的是100，最小的是1；
 
     3. 编号贴在背后，自己只能看见别人的编号；
-        每个 person 可以观测对方的数值，观测可以加噪声
+        注：每个 person 可以观测对方的数值，观测可以加噪声
 
     4. 大家可以说任何话，但不能把对方的编号告诉对方。
-        每个 person 无法直接获得自己的数值，但是隐含了可以估计
+        注：每个 person 无法直接获得自己的数值，但是隐含了可以估计
 
     5. 实验要求：大家去找一个异性配对，只要两人加起来的数字越大，得到的奖品越高，奖金归他们所有；
 
     6. 配对时间有限，设定4轮，固定后不可更改。
 
-p.s.：
+TODO:
 
     1. 每人一轮可以选10个，此处首先为随机抽取
 
     2. 每人可以知道自己被谁选择，以及该人是否可选这一情况。作为记忆，整场留存。
-
 """
 
 
